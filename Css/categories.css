@@ -1,0 +1,433 @@
+/*==================================================
+CATEGORIES SECTION
+==================================================*/
+
+.categories{
+  position:relative;
+  padding:var(--section-space) 0;
+  background:var(--bg);
+  overflow:hidden;
+  isolation:isolate;
+  }
+  
+  /*==================================================
+  BACKGROUND
+  ==================================================*/
+  
+  .categories::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+  linear-gradient(
+  180deg,
+  #F6FFF8 0%,
+  #F0FBF4 100%);
+  z-index:-5;
+  }
+  
+  .categories::after{
+  content:"";
+  position:absolute;
+  width:650px;
+  height:650px;
+  left:-220px;
+  top:-220px;
+  border-radius:50%;
+  background:
+  radial-gradient(circle,
+  rgba(149,213,178,.18),
+  transparent 70%);
+  filter:blur(80px);
+  animation:categoryGlow 18s ease-in-out infinite;
+  z-index:-4;
+  }
+  
+  /*==================================================
+  GRID
+  ==================================================*/
+  
+  .categories-grid{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:24px;
+  position:relative;
+  z-index:5;
+  }
+  
+  /*==================================================
+  ANIMATION
+  ==================================================*/
+  
+  @keyframes categoryGlow{
+  
+  0%,100%{
+  transform:translate(0,0);
+  }
+  
+  50%{
+  transform:translate(70px,50px);
+  }
+  
+  }
+
+  /*==================================================
+CATEGORY CARD
+==================================================*/
+
+.category-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  padding:36px 20px;
+  border-radius:28px;
+  background:rgba(255,255,255,.75);
+  border:1px solid rgba(149,213,178,.18);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  box-shadow:
+  0 18px 45px rgba(0,0,0,.06),
+  inset 0 1px 0 rgba(255,255,255,.65);
+  overflow:hidden;
+  transition:all .4s ease;
+  cursor:pointer;
+  }
+  
+  /*================================*/
+  
+  .category-card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:5px;
+  background:var(--gradient-primary);
+  border-radius:0 12px 12px 0;
+  transform:scaleY(0);
+  transform-origin:top;
+  transition:.45s ease;
+  }
+  
+  /*================================*/
+  
+  .category-card::after{
+  content:"";
+  position:absolute;
+  top:-130%;
+  left:-45%;
+  width:45%;
+  height:320%;
+  background:
+  linear-gradient(
+  to right,
+  transparent,
+  rgba(255,255,255,.25),
+  transparent);
+  transform:rotate(25deg);
+  transition:1s;
+  pointer-events:none;
+  }
+  
+  /*================================*/
+  
+  .category-card:hover{
+  transform:translateY(-12px);
+  border-color:rgba(82,183,136,.35);
+  box-shadow:
+  0 30px 60px rgba(0,0,0,.10),
+  0 0 35px rgba(82,183,136,.10);
+  }
+  
+  .category-card:hover::before{
+  transform:scaleY(1);
+  }
+  
+  .category-card:hover::after{
+  left:150%;
+  }
+
+  /*==================================================
+CATEGORY ICON
+==================================================*/
+
+.cat-icon{
+  position:relative;
+  width:72px;
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:22px;
+  background:
+  linear-gradient(
+  135deg,
+  rgba(149,213,178,.20),
+  rgba(82,183,136,.08));
+  border:1px solid rgba(149,213,178,.18);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  font-size:1.9rem;
+  color:var(--primary);
+  overflow:hidden;
+  transition:.45s ease;
+  box-shadow:
+  0 15px 30px rgba(0,0,0,.08);
+  }
+  
+  /* Glow Ring */
+  
+  .cat-icon::before{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  background:
+  conic-gradient(
+  transparent,
+  rgba(149,213,178,.22),
+  transparent,
+  rgba(82,183,136,.18),
+  transparent);
+  animation:iconRotate 10s linear infinite;
+  }
+  
+  /* Inner Circle */
+  
+  .cat-icon::after{
+  content:"";
+  position:absolute;
+  inset:5px;
+  border-radius:18px;
+  background:#F8FFF9;
+  z-index:1;
+  }
+  
+  .cat-icon i{
+  position:relative;
+  z-index:5;
+  transition:.35s ease;
+  }
+  
+  /* Hover */
+  
+  .category-card:hover .cat-icon{
+  background:var(--gradient-primary);
+  color:#fff;
+  transform:
+  translateY(-4px)
+  rotate(-8deg)
+  scale(1.08);
+  box-shadow:
+  0 20px 40px rgba(45,106,79,.28),
+  0 0 25px rgba(82,183,136,.20);
+  }
+  
+  .category-card:hover .cat-icon::after{
+  background:transparent;
+  }
+  
+  .category-card:hover .cat-icon i{
+  transform:scale(1.12);
+  }
+  
+  /*==================================================
+  CATEGORY NAME
+  ==================================================*/
+  
+  .cat-name{
+  position:relative;
+  z-index:2;
+  font-family:var(--heading-font);
+  font-size:1rem;
+  font-weight:700;
+  text-align:center;
+  line-height:1.4;
+  color:var(--heading);
+  transition:.35s ease;
+  }
+  
+  .category-card:hover .cat-name{
+  color:var(--primary);
+  letter-spacing:.02em;
+  }
+  
+  /*==================================================
+  CATEGORY COUNT
+  ==================================================*/
+  
+  .cat-count{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:6px 14px;
+  border-radius:999px;
+  background:rgba(82,183,136,.10);
+  border:1px solid rgba(149,213,178,.18);
+  font-size:.76rem;
+  font-weight:700;
+  color:var(--primary);
+  transition:.35s ease;
+  }
+  
+  .category-card:hover .cat-count{
+  background:var(--gradient-primary);
+  color:#fff;
+  border-color:transparent;
+  box-shadow:
+  0 10px 25px rgba(45,106,79,.25);
+  }
+  
+  /*==================================================
+  ANIMATION
+  ==================================================*/
+  
+  @keyframes iconRotate{
+  
+  from{
+  transform:rotate(0deg);
+  }
+  
+  to{
+  transform:rotate(360deg);
+  }
+  
+  }
+
+  /*==================================================
+CARD ENTRANCE ANIMATION
+==================================================*/
+
+.categories-grid .category-card{
+  opacity:0;
+  transform:translateY(40px);
+  animation:categoryFade .8s forwards;
+  }
+  
+  .categories-grid .category-card:nth-child(1){animation-delay:.10s;}
+  .categories-grid .category-card:nth-child(2){animation-delay:.20s;}
+  .categories-grid .category-card:nth-child(3){animation-delay:.30s;}
+  .categories-grid .category-card:nth-child(4){animation-delay:.40s;}
+  .categories-grid .category-card:nth-child(5){animation-delay:.50s;}
+  .categories-grid .category-card:nth-child(6){animation-delay:.60s;}
+  
+  /*==================================================
+  SOFT GLOW
+  ==================================================*/
+  
+  .categories-grid::before{
+  content:"";
+  position:absolute;
+  width:520px;
+  height:520px;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:
+  radial-gradient(circle,
+  rgba(82,183,136,.08),
+  transparent 70%);
+  filter:blur(80px);
+  z-index:-1;
+  animation:gridGlow 10s ease-in-out infinite;
+  }
+  
+  /*==================================================
+  CARD DEPTH
+  ==================================================*/
+  
+  .category-card:hover{
+  z-index:5;
+  }
+  
+  .category-card:hover .cat-icon{
+  animation:iconBounce .6s ease;
+  }
+  
+  .category-card:hover .cat-count{
+  transform:translateY(-2px);
+  }
+  
+  /*==================================================
+  LIGHT REFLECTION
+  ==================================================*/
+  
+  .category-card{
+  isolation:isolate;
+  }
+  
+  .category-card::selection{
+  background:transparent;
+  }
+  
+  /*==================================================
+  KEYFRAMES
+  ==================================================*/
+  
+  @keyframes categoryFade{
+  
+  from{
+  opacity:0;
+  transform:translateY(35px);
+  }
+  
+  to{
+  opacity:1;
+  transform:translateY(0);
+  }
+  
+  }
+  
+  @keyframes gridGlow{
+  
+  0%,100%{
+  opacity:.45;
+  transform:translate(-50%,-50%) scale(1);
+  }
+  
+  50%{
+  opacity:1;
+  transform:translate(-50%,-50%) scale(1.08);
+  }
+  
+  }
+  
+  @keyframes iconBounce{
+  
+  0%{
+  transform:scale(1);
+  }
+  
+  50%{
+  transform:scale(1.15) rotate(-8deg);
+  }
+  
+  100%{
+  transform:scale(1.08) rotate(-8deg);
+  }
+  
+  }
+  
+  /*==================================================
+  SMOOTH TRANSITION
+  ==================================================*/
+  
+  .categories *,
+  .categories *::before,
+  .categories *::after{
+  transition:
+  transform .35s ease,
+  background .35s ease,
+  color .35s ease,
+  border-color .35s ease,
+  box-shadow .35s ease,
+  opacity .35s ease;
+  }
+  
+  /*==================================================
+  END CATEGORIES CSS
+  ==================================================*/

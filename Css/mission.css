@@ -1,0 +1,782 @@
+/*==================================================
+MISSION SECTION
+==================================================*/
+
+.mission{
+  position:relative;
+  padding:var(--section-space) 0;
+  background:var(--bg);
+  overflow:hidden;
+  isolation:isolate;
+  }
+  
+  /*==================================================
+  BACKGROUND
+  ==================================================*/
+  
+  .mission::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+  linear-gradient(
+  180deg,
+  #F8FFF9 0%,
+  #F3FCF5 100%);
+  z-index:-5;
+  }
+  
+  .mission::after{
+  content:"";
+  position:absolute;
+  width:700px;
+  height:700px;
+  right:-220px;
+  top:-220px;
+  border-radius:50%;
+  background:
+  radial-gradient(circle,
+  rgba(149,213,178,.18),
+  transparent 70%);
+  filter:blur(80px);
+  animation:missionGlow 16s ease-in-out infinite;
+  z-index:-4;
+  }
+  
+  /*==================================================
+  DECORATIVE LIGHT
+  ==================================================*/
+  
+  .mission .container::before{
+  content:"";
+  position:absolute;
+  left:-180px;
+  bottom:-180px;
+  width:420px;
+  height:420px;
+  border-radius:50%;
+  background:
+  radial-gradient(circle,
+  rgba(82,183,136,.12),
+  transparent 70%);
+  filter:blur(60px);
+  pointer-events:none;
+  z-index:-3;
+  }
+  
+  /*==================================================
+  LAYOUT
+  ==================================================*/
+  
+  .mission-inner{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:90px;
+  position:relative;
+  z-index:5;
+  }
+  
+  /*==================================================
+  LEFT CONTENT
+  ==================================================*/
+  
+  .mission-content{
+  display:flex;
+  flex-direction:column;
+  gap:28px;
+  }
+  
+  .mission-content .section-eyebrow{
+  align-self:flex-start;
+  }
+  
+  .mission-content .section-title{
+  text-align:left;
+  }
+  
+  .mission-content .section-title::after{
+  margin:18px 0 0;
+  }
+  
+  /*==================================================
+  DESCRIPTION
+  ==================================================*/
+  
+  .mission-desc{
+  max-width:560px;
+  font-size:1.02rem;
+  line-height:1.9;
+  color:var(--text);
+  }
+  
+  /*==================================================
+  ANIMATION
+  ==================================================*/
+  
+  @keyframes missionGlow{
+  
+  0%,100%{
+  transform:translate(0,0);
+  }
+  
+  50%{
+  transform:translate(-60px,50px);
+  }
+  
+  }
+  
+  /*==================================================
+MISSION PILLARS
+==================================================*/
+
+.mission-pillars{
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+  margin-top:10px;
+  }
+  
+  /*==================================================
+  PILLAR CARD
+  ==================================================*/
+  
+  .pillar{
+  position:relative;
+  display:flex;
+  align-items:flex-start;
+  gap:18px;
+  padding:24px;
+  border-radius:24px;
+  background:rgba(255,255,255,.75);
+  border:1px solid rgba(149,213,178,.18);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  box-shadow:
+  0 15px 40px rgba(0,0,0,.06),
+  inset 0 1px 0 rgba(255,255,255,.65);
+  overflow:hidden;
+  transition:all .4s ease;
+  }
+  
+  /* Left Accent */
+  
+  .pillar::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:5px;
+  border-radius:0 10px 10px 0;
+  background:var(--gradient-primary);
+  transform:scaleY(0);
+  transform-origin:top;
+  transition:.45s ease;
+  }
+  
+  /* Shine */
+  
+  .pillar::after{
+  content:"";
+  position:absolute;
+  top:-120%;
+  left:-40%;
+  width:45%;
+  height:300%;
+  background:
+  linear-gradient(
+  to right,
+  transparent,
+  rgba(255,255,255,.22),
+  transparent);
+  transform:rotate(22deg);
+  transition:1s;
+  pointer-events:none;
+  }
+  
+  /* Hover */
+  
+  .pillar:hover{
+  transform:translateX(10px);
+  border-color:rgba(82,183,136,.35);
+  box-shadow:
+  0 25px 55px rgba(0,0,0,.10),
+  0 0 30px rgba(82,183,136,.10);
+  }
+  
+  .pillar:hover::before{
+  transform:scaleY(1);
+  }
+  
+  .pillar:hover::after{
+  left:140%;
+  }
+  
+  /*==================================================
+  ICON
+  ==================================================*/
+  
+  .pillar-icon{
+  width:58px;
+  height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  border-radius:18px;
+  background:
+  linear-gradient(
+  135deg,
+  rgba(149,213,178,.22),
+  rgba(82,183,136,.10));
+  border:1px solid rgba(149,213,178,.18);
+  color:var(--primary);
+  font-size:1.45rem;
+  transition:.4s ease;
+  }
+  
+  .pillar:hover .pillar-icon{
+  background:var(--gradient-primary);
+  color:#fff;
+  transform:rotate(-8deg) scale(1.08);
+  box-shadow:
+  0 18px 35px rgba(45,106,79,.25);
+  }
+  
+  /*==================================================
+  TEXT
+  ==================================================*/
+  
+  .pillar-text{
+  flex:1;
+  }
+  
+  .pillar-text h4{
+  font-family:var(--heading-font);
+  font-size:1.08rem;
+  font-weight:700;
+  color:var(--heading);
+  margin-bottom:8px;
+  transition:.35s;
+  }
+  
+  .pillar-text p{
+  font-size:.92rem;
+  line-height:1.75;
+  color:var(--text);
+  }
+  
+  .pillar:hover .pillar-text h4{
+  color:var(--primary);
+  }
+  
+  /*==================================================
+MISSION VISUAL
+==================================================*/
+
+.mission-visual{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:560px;
+  }
+  
+  /*==================================================
+  IMAGE WRAPPER
+  ==================================================*/
+  
+  .mission-img-wrap{
+  position:relative;
+  width:420px;
+  height:500px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  border-radius:34px;
+  background:
+  linear-gradient(
+  145deg,
+  rgba(255,255,255,.08),
+  rgba(255,255,255,.03));
+  border:1px solid rgba(149,213,178,.18);
+  backdrop-filter:blur(28px);
+  -webkit-backdrop-filter:blur(28px);
+  box-shadow:
+  0 35px 80px rgba(0,0,0,.18),
+  inset 0 1px 0 rgba(255,255,255,.10);
+  transition:.45s ease;
+  }
+  
+  /*=============================*/
+  
+  .mission-img-wrap:hover{
+  transform:translateY(-12px);
+  box-shadow:
+  0 50px 90px rgba(0,0,0,.22),
+  0 0 45px rgba(82,183,136,.15);
+  }
+  
+  /*=============================*/
+  
+  .mission-img-wrap::before{
+  content:"";
+  position:absolute;
+  width:520px;
+  height:520px;
+  border-radius:50%;
+  background:
+  radial-gradient(circle,
+  rgba(82,183,136,.14),
+  transparent 70%);
+  filter:blur(45px);
+  animation:missionPulse 8s ease-in-out infinite;
+  }
+  
+  /*=============================*/
+  
+  .mission-img-wrap::after{
+  content:"";
+  position:absolute;
+  top:-150%;
+  left:-45%;
+  width:45%;
+  height:350%;
+  background:
+  linear-gradient(
+  to right,
+  transparent,
+  rgba(255,255,255,.20),
+  transparent);
+  transform:rotate(25deg);
+  transition:1.1s;
+  }
+  
+  .mission-img-wrap:hover::after{
+  left:145%;
+  }
+  
+  /*==================================================
+  PLACEHOLDER
+  ==================================================*/
+  
+  .mission-img-placeholder{
+  position:relative;
+  width:220px;
+  height:220px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:
+  linear-gradient(
+  135deg,
+  rgba(255,255,255,.12),
+  rgba(255,255,255,.04));
+  border:1px solid rgba(149,213,178,.20);
+  overflow:hidden;
+  box-shadow:
+  0 20px 45px rgba(0,0,0,.22),
+  inset 0 1px 0 rgba(255,255,255,.12);
+  }
+  
+  /*=============================*/
+  
+  .mission-img-placeholder::before{
+  content:"";
+  position:absolute;
+  width:340px;
+  height:340px;
+  background:
+  conic-gradient(
+  transparent,
+  rgba(149,213,178,.18),
+  transparent,
+  rgba(82,183,136,.18),
+  transparent);
+  animation:rotateMission 15s linear infinite;
+  }
+  
+  /*=============================*/
+  
+  .mission-img-placeholder::after{
+  content:"";
+  position:absolute;
+  inset:6px;
+  border-radius:50%;
+  background:
+  linear-gradient(
+  135deg,
+  #163A2C,
+  #24503F);
+  }
+  
+  /*==================================================
+  ICON
+  ==================================================*/
+  
+  .mission-img-placeholder i{
+  position:relative;
+  z-index:5;
+  font-size:7rem;
+  background:
+  linear-gradient(
+  135deg,
+  #D8F3DC,
+  #95D5B2,
+  #52B788);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  filter:drop-shadow(0 0 20px rgba(149,213,178,.35));
+  animation:leafFloat 4s ease-in-out infinite;
+  }
+  
+  /*==================================================
+  ANIMATION
+  ==================================================*/
+  
+  @keyframes rotateMission{
+  
+  from{
+  transform:rotate(0deg);
+  }
+  
+  to{
+  transform:rotate(360deg);
+  }
+  
+  }
+  
+  @keyframes missionPulse{
+  
+  0%,100%{
+  transform:scale(1);
+  opacity:.55;
+  }
+  
+  50%{
+  transform:scale(1.08);
+  opacity:1;
+  }
+  
+  }
+
+   
+  /*==================================================
+COUNTER CARD
+==================================================*/
+
+.mission-counter-card{
+  position:absolute;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  padding:22px 26px;
+  min-width:170px;
+  background:rgba(255,255,255,.88);
+  border:1px solid rgba(149,213,178,.22);
+  border-radius:24px;
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  box-shadow:
+  0 25px 60px rgba(0,0,0,.12),
+  inset 0 1px 0 rgba(255,255,255,.65);
+  overflow:hidden;
+  transition:.4s ease;
+  z-index:20;
+  }
+  
+  .mission-counter-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+  linear-gradient(
+  135deg,
+  rgba(255,255,255,.12),
+  transparent,
+  rgba(149,213,178,.10));
+  pointer-events:none;
+  }
+  
+  .mission-counter-card:hover{
+  transform:translateY(-10px) scale(1.03);
+  box-shadow:
+  0 35px 70px rgba(0,0,0,.18),
+  0 0 35px rgba(82,183,136,.15);
+  }
+  
+  /*==================================================
+  POSITION
+  ==================================================*/
+  
+  .mission-counter-card:first-of-type{
+  left:-45px;
+  bottom:45px;
+  animation:counterFloatOne 6s ease-in-out infinite;
+  }
+  
+  .mission-counter-card.card-2{
+  top:45px;
+  right:-45px;
+  animation:counterFloatTwo 6s ease-in-out infinite;
+  animation-delay:2.5s;
+  }
+  
+  /*==================================================
+  NUMBER
+  ==================================================*/
+  
+  .counter-num{
+  font-family:var(--heading-font);
+  font-size:2rem;
+  font-weight:800;
+  line-height:1;
+  background:
+  linear-gradient(
+  135deg,
+  #1B4332,
+  #2D6A4F,
+  #52B788);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  }
+  
+  /*==================================================
+  LABEL
+  ==================================================*/
+  
+  .counter-label{
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--text-light);
+  }
+  
+  /*==================================================
+  ICON GLOW
+  ==================================================*/
+  
+  .mission-counter-card:hover .counter-num{
+  filter:drop-shadow(0 0 10px rgba(82,183,136,.35));
+  }
+  
+  /*==================================================
+  FLOATING ANIMATION
+  ==================================================*/
+  
+  @keyframes counterFloatOne{
+  
+  0%,100%{
+  transform:translateY(0);
+  }
+  
+  50%{
+  transform:translateY(-16px);
+  }
+  
+  }
+  
+  @keyframes counterFloatTwo{
+  
+  0%,100%{
+  transform:translateY(0);
+  }
+  
+  50%{
+  transform:translateY(16px);
+  }
+  
+  }
+
+  /*==================================================
+SECTION ANIMATION
+==================================================*/
+
+.mission-content>*{
+  opacity:0;
+  animation:missionFade .8s forwards;
+  }
+  
+  .mission-content>*:nth-child(1){
+  animation-delay:.1s;
+  }
+  
+  .mission-content>*:nth-child(2){
+  animation-delay:.25s;
+  }
+  
+  .mission-content>*:nth-child(3){
+  animation-delay:.4s;
+  }
+  
+  .mission-content>*:nth-child(4){
+  animation-delay:.55s;
+  }
+  
+  .mission-visual{
+  opacity:0;
+  animation:missionImage 1s .4s forwards;
+  }
+  
+  /*==================================================
+  HOVER DEPTH
+  ==================================================*/
+  
+  .mission:hover .mission-img-wrap{
+  transform:
+  translateY(-12px)
+  rotate(-1deg);
+  }
+  
+  .mission:hover .mission-counter-card:first-of-type{
+  transform:
+  translateY(-10px)
+  rotate(-2deg);
+  }
+  
+  .mission:hover .mission-counter-card.card-2{
+  transform:
+  translateY(10px)
+  rotate(2deg);
+  }
+  
+  /*==================================================
+  SOFT GREEN GLOW
+  ==================================================*/
+  
+  .mission-visual::before{
+  content:"";
+  position:absolute;
+  width:520px;
+  height:520px;
+  border-radius:50%;
+  background:
+  radial-gradient(circle,
+  rgba(82,183,136,.10),
+  transparent 70%);
+  filter:blur(70px);
+  z-index:-2;
+  animation:visualGlow 8s ease-in-out infinite;
+  }
+  
+  .mission-visual::after{
+  content:"";
+  position:absolute;
+  width:280px;
+  height:280px;
+  right:30px;
+  top:40px;
+  border-radius:50%;
+  background:
+  radial-gradient(circle,
+  rgba(216,243,220,.12),
+  transparent 70%);
+  filter:blur(50px);
+  z-index:-2;
+  }
+  
+  /*==================================================
+  PILLAR HOVER
+  ==================================================*/
+  
+  .pillar:hover{
+  transform:translateX(10px);
+  }
+  
+  .pillar:hover .pillar-text h4{
+  letter-spacing:.02em;
+  }
+  
+  .pillar:hover .pillar-text p{
+  color:var(--heading);
+  }
+  
+  /*==================================================
+  GLASS POLISH
+  ==================================================*/
+  
+  .mission-img-wrap,
+  .mission-counter-card,
+  .pillar{
+  position:relative;
+  }
+  
+  .mission-img-wrap::selection,
+  .pillar::selection{
+  background:transparent;
+  }
+  
+  /*==================================================
+  KEYFRAMES
+  ==================================================*/
+  
+  @keyframes missionFade{
+  
+  from{
+  opacity:0;
+  transform:translateY(35px);
+  }
+  
+  to{
+  opacity:1;
+  transform:translateY(0);
+  }
+  
+  }
+  
+  @keyframes missionImage{
+  
+  from{
+  opacity:0;
+  transform:
+  translateX(60px)
+  scale(.95);
+  }
+  
+  to{
+  opacity:1;
+  transform:
+  translateX(0)
+  scale(1);
+  }
+  
+  }
+  
+  @keyframes visualGlow{
+  
+  0%,100%{
+  opacity:.45;
+  transform:scale(1);
+  }
+  
+  50%{
+  opacity:1;
+  transform:scale(1.08);
+  }
+  
+  }
+  
+  /*==================================================
+  SMOOTH TRANSITION
+  ==================================================*/
+  
+  .mission *,
+  .mission *::before,
+  .mission *::after{
+  transition:
+  background .35s ease,
+  color .35s ease,
+  border-color .35s ease,
+  box-shadow .35s ease,
+  transform .35s ease;
+  }
+  
+  /*==================================================
+  END MISSION CSS
+  ==================================================*/

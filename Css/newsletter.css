@@ -1,0 +1,643 @@
+/*==================================================
+NEWSLETTER
+==================================================*/
+
+  .newsletter{
+  position:relative;
+  padding:120px 0;
+  overflow:hidden;
+  background:var(--gradient-hero);
+  isolation:isolate;
+  }
+  
+  .newsletter::before{
+  content:"";
+  position:absolute;
+  width:700px;
+  height:700px;
+  top:-250px;
+  left:-200px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(82,183,136,.18),transparent 70%);
+  filter:blur(90px);
+  animation:newsletterGlowOne 18s ease-in-out infinite;
+  }
+  
+  .newsletter::after{
+  content:"";
+  position:absolute;
+  width:600px;
+  height:600px;
+  bottom:-220px;
+  right:-180px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(149,213,178,.15),transparent 70%);
+  filter:blur(80px);
+  animation:newsletterGlowTwo 20s ease-in-out infinite;
+  }
+  
+  .newsletter-inner{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:90px;
+    }
+  
+    .newsletter-content{
+      display:flex;
+      flex-direction:column;
+      gap:30px;
+      max-width:700px;
+      width:100%;
+      }
+  
+  .newsletter-title{
+  font-family:var(--font-heading);
+  font-size:clamp(2.4rem,5vw,3.5rem);
+  font-weight:800;
+  line-height:1.15;
+  color:#fff;
+  }
+  
+  .newsletter-title span{
+  background:linear-gradient(135deg,#6EE7B7,#34D399,#10B981);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  }
+  
+  .newsletter-desc{
+    max-width:620px;
+    font-size:1.02rem;
+    line-height:1.9;
+    color:rgba(255,255,255,.72);
+    }
+  
+  @keyframes newsletterGlowOne{
+  0%,100%{transform:translate(0);}
+  50%{transform:translate(-60px,40px);}
+  }
+  
+  @keyframes newsletterGlowTwo{
+  0%,100%{transform:translate(0);}
+  50%{transform:translate(60px,-40px);}
+  }
+
+  /*==================================================
+NEWSLETTER FORM
+==================================================*/
+
+.newsletter-form{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  margin-top:8px;
+  }
+  
+  .form-group{
+  position:relative;
+  display:flex;
+  align-items:center;
+  height:72px;
+  padding:8px;
+  padding-left:24px;
+  border-radius:60px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.10);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  box-shadow:
+  0 20px 50px rgba(0,0,0,.25),
+  inset 0 1px 0 rgba(255,255,255,.08);
+  overflow:hidden;
+  transition:.4s ease;
+  }
+  
+  .form-group::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+  135deg,
+  rgba(255,255,255,.08),
+  transparent);
+  pointer-events:none;
+  }
+  
+  .form-group:focus-within{
+  border-color:rgba(149,213,178,.30);
+  box-shadow:
+  0 0 0 4px rgba(82,183,136,.12),
+  0 20px 60px rgba(0,0,0,.35);
+  }
+  
+  .form-icon{
+  font-size:1.2rem;
+  color:#95D5B2;
+  margin-right:12px;
+  filter:drop-shadow(0 0 10px rgba(149,213,178,.30));
+  }
+  
+  .form-input{
+  flex:1;
+  background:none;
+  border:none;
+  outline:none;
+  font-family:var(--font-body);
+  font-size:1rem;
+  color:#fff;
+  min-width:0;
+  }
+  
+  .form-input::placeholder{
+  color:rgba(255,255,255,.45);
+  }
+  
+  .form-group .btn{
+  height:56px;
+  padding:0 28px;
+  border-radius:50px;
+  background:var(--gradient-primary);
+  color:#fff;
+  font-size:.92rem;
+  font-weight:700;
+  box-shadow:0 15px 35px rgba(5,150,105,.35);
+  transition:.35s ease;
+  }
+  
+  .form-group .btn:hover{
+  transform:translateY(-3px);
+  box-shadow:
+  0 25px 45px rgba(45,106,79,.45),
+  0 0 20px rgba(82,183,136,.18);
+  }
+  
+  .form-note{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:.82rem;
+  font-weight:500;
+  color:rgba(255,255,255,.60);
+  }
+  
+  .form-note i{
+  font-size:1rem;
+  color:#95D5B2;
+  }
+
+
+/*==================================================
+Newsletter featuers
+==================================================*/
+
+.newsletter-features{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin:8px 0 10px;
+  }
+  
+  .feature-item{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:14px 18px;
+  border-radius:18px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(15px);
+  transition:.35s;
+  }
+  
+  .feature-item:hover{
+  transform:translateX(8px);
+  background:rgba(255,255,255,.08);
+  border-color:rgba(149,213,178,.20);
+  }
+  
+  .feature-item i{
+  width:42px;
+  height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
+  background:var(--gradient-primary);
+  color:#fff;
+  font-size:1.1rem;
+  flex-shrink:0;
+  }
+  
+  .feature-item span{
+  font-size:.92rem;
+  font-weight:600;
+  color:#fff;
+  }
+
+  
+  /*==================================================
+CONTACT CARD
+==================================================*/
+
+.contact-content{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  gap:30px;
+  padding:45px;
+  border-radius:32px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.10);
+  backdrop-filter:blur(30px);
+  -webkit-backdrop-filter:blur(30px);
+  box-shadow:
+  0 30px 70px rgba(0,0,0,.30),
+  inset 0 1px 0 rgba(255,255,255,.08);
+  overflow:hidden;
+  z-index:2;
+  }
+  
+  .contact-content::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+  135deg,
+  rgba(255,255,255,.08),
+  transparent);
+  pointer-events:none;
+  }
+  
+  .contact-content::after{
+  content:"";
+  position:absolute;
+  width:320px;
+  height:320px;
+  right:-100px;
+  top:-100px;
+  border-radius:50%;
+  background:radial-gradient(circle,
+  rgba(82,183,136,.18),
+  transparent 70%);
+  filter:blur(60px);
+  animation:contactGlow 8s ease-in-out infinite;
+  }
+  
+  /*==================================================
+  TITLE
+  ==================================================*/
+  
+  .contact-title{
+  font-family:var(--font-heading);
+  font-size:2rem;
+  font-weight:700;
+  color:#fff;
+  line-height:1.2;
+  }
+  
+  /*==================================================
+  CONTACT ITEMS
+  ==================================================*/
+  
+  .contact-items{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  }
+  
+  .contact-item{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  padding:18px;
+  border-radius:20px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.06);
+  transition:.35s ease;
+  position:relative;
+  }
+  
+  .contact-item:hover{
+  background:rgba(255,255,255,.08);
+  transform:translateX(8px);
+  border-color:rgba(149,213,178,.20);
+  }
+  
+  .contact-item i{
+  width:54px;
+  height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:16px;
+  background:rgba(82,183,136,.12);
+  border:1px solid rgba(149,213,178,.15);
+  color:#95D5B2;
+  font-size:1.25rem;
+  flex-shrink:0;
+  transition:.35s ease;
+  }
+  
+  .contact-item:hover i{
+  background:var(--gradient-primary);
+  color:#fff;
+  transform:rotate(-8deg) scale(1.08);
+  box-shadow:0 15px 35px rgba(5,150,105,.35);
+  }
+  
+  .contact-item.copyable{
+  cursor:pointer;
+  }
+  
+  .contact-item.copyable::after{
+  content:"Click to copy";
+  position:absolute;
+  right:18px;
+  font-size:.7rem;
+  font-weight:600;
+  color:rgba(255,255,255,.35);
+  opacity:0;
+  transition:.3s;
+  }
+  
+  .contact-item.copyable:hover::after{
+  opacity:1;
+  }
+  
+  /*==================================================
+  CONTACT FORM
+  ==================================================*/
+  
+  .contact-form{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  position:relative;
+  z-index:3;
+  }
+  
+  .contact-form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  }
+  
+  .contact-field{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  }
+  
+  .contact-field label{
+  font-size:.82rem;
+  font-weight:700;
+  color:rgba(255,255,255,.85);
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  margin-bottom:0;
+  }
+  
+  .contact-input{
+  width:100%;
+  padding:14px 18px;
+  border-radius:14px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.10);
+  color:#fff;
+  font-size:.92rem;
+  transition:var(--transition);
+  box-shadow:none;
+  }
+  
+  .contact-input::placeholder{
+  color:rgba(255,255,255,.35);
+  }
+  
+  .contact-input:focus{
+  border-color:rgba(52,211,153,.45);
+  background:rgba(255,255,255,.10);
+  box-shadow:0 0 0 4px rgba(16,185,129,.12);
+  }
+  
+  .contact-input.invalid{
+  border-color:rgba(239,68,68,.6);
+  box-shadow:0 0 0 4px rgba(239,68,68,.1);
+  }
+  
+  .contact-textarea{
+  min-height:110px;
+  resize:vertical;
+  }
+  
+  .field-error{
+  font-size:.75rem;
+  color:#FCA5A5;
+  min-height:1em;
+  font-weight:500;
+  }
+  
+  .contact-submit{
+  width:100%;
+  margin-top:4px;
+  justify-content:center;
+  }
+  
+  .contact-submit.loading{
+  pointer-events:none;
+  opacity:.75;
+  }
+  
+  .contact-submit.loading .btn-text{
+  opacity:.9;
+  }
+  
+  .contact-success{
+  display:none;
+  align-items:center;
+  gap:12px;
+  padding:16px 20px;
+  border-radius:16px;
+  background:rgba(16,185,129,.15);
+  border:1px solid rgba(52,211,153,.25);
+  color:#A7F3D0;
+  font-size:.9rem;
+  font-weight:600;
+  animation:successFade .5s ease;
+  }
+  
+  .contact-success.show{
+  display:flex;
+  }
+  
+  .contact-success i{
+  font-size:1.4rem;
+  color:#34D399;
+  }
+  
+  .contact-item h5{
+  font-size:.92rem;
+  font-weight:700;
+  color:#fff;
+  margin-bottom:4px;
+  }
+  
+  .contact-item span{
+  font-size:.85rem;
+  line-height:1.7;
+  color:rgba(255,255,255,.65);
+  }
+  
+  /*==================================================
+  ANIMATION
+  ==================================================*/
+  
+  @keyframes contactGlow{
+  0%,100%{
+  transform:scale(1);
+  opacity:.5;
+  }
+  50%{
+  transform:scale(1.08);
+  opacity:1;
+  }
+  }
+
+  /*==================================================
+SOCIAL LINKS
+==================================================*/
+
+.social-links{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-top:8px;
+  }
+  
+  .social-link{
+  width:54px;
+  height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.10);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  font-size:1.2rem;
+  color:#95D5B2;
+  box-shadow:0 15px 35px rgba(0,0,0,.20);
+  transition:.4s ease;
+  }
+  
+  .social-link:hover{
+  background:var(--gradient-primary);
+  color:#fff;
+  transform:translateY(-8px) rotate(-10deg);
+  box-shadow:
+  0 20px 45px rgba(5,150,105,.40),
+  0 0 25px rgba(16,185,129,.25);
+  }
+  
+  /*==================================================
+  SUCCESS MESSAGE
+  ==================================================*/
+  
+  .newsletter-success{
+  display:none;
+  align-items:center;
+  gap:12px;
+  padding:18px 22px;
+  border-radius:18px;
+  background:rgba(82,183,136,.12);
+  border:1px solid rgba(149,213,178,.18);
+  backdrop-filter:blur(20px);
+  color:#D8F3DC;
+  font-size:.92rem;
+  font-weight:600;
+  }
+  
+  .newsletter-success.show{
+  display:flex;
+  animation:successFade .5s ease;
+  }
+  
+  .newsletter-success i{
+  font-size:1.3rem;
+  color:#95D5B2;
+  }
+  
+  /*==================================================
+  ENTRANCE ANIMATION
+  ==================================================*/
+  
+  .newsletter-content>*{
+  opacity:0;
+  animation:newsletterFade .8s forwards;
+  }
+  
+  .newsletter-content>*:nth-child(1){animation-delay:.1s;}
+  .newsletter-content>*:nth-child(2){animation-delay:.25s;}
+  .newsletter-content>*:nth-child(3){animation-delay:.4s;}
+  .newsletter-content>*:nth-child(4){animation-delay:.55s;}
+  
+  .contact-content{
+  opacity:0;
+  animation:contactReveal .9s .35s forwards;
+  }
+  
+  /*==================================================
+  KEYFRAMES
+  ==================================================*/
+  
+  @keyframes newsletterFade{
+  from{
+  opacity:0;
+  transform:translateY(35px);
+  }
+  to{
+  opacity:1;
+  transform:translateY(0);
+  }
+  }
+  
+  @keyframes contactReveal{
+  from{
+  opacity:0;
+  transform:translateX(40px);
+  }
+  to{
+  opacity:1;
+  transform:translateX(0);
+  }
+  }
+  
+  @keyframes successFade{
+  from{
+  opacity:0;
+  transform:translateY(20px);
+  }
+  to{
+  opacity:1;
+  transform:translateY(0);
+  }
+  }
+  
+  /*==================================================
+  GLOBAL TRANSITIONS
+  ==================================================*/
+  
+  .newsletter *,
+  .newsletter *::before,
+  .newsletter *::after{
+  transition:
+  background .35s ease,
+  color .35s ease,
+  border-color .35s ease,
+  box-shadow .35s ease,
+  transform .35s ease,
+  opacity .35s ease;
+  }
+  
+  /*==================================================
+  END NEWSLETTER CSS
+  ==================================================*/

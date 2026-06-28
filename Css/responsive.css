@@ -1,0 +1,691 @@
+/* ============================================
+   ECO NEST — responsive.css
+   Mobile Nav | Breakpoints | Dark Mode | Features
+   ============================================ */
+
+/* ============================================
+   MOBILE NAV OVERLAY
+   ============================================ */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 44, 34, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.nav-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ============================================
+   TABLET LARGE — max 1100px
+   ============================================ */
+@media (max-width: 1100px) {
+  :root {
+    --section-space: 80px;
+    --padding: 22px;
+  }
+
+  .hero {
+    gap: 32px;
+    padding: 110px var(--padding) 70px;
+  }
+
+  .hero-img-card {
+    width: 300px;
+    height: 360px;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .mission-inner {
+    gap: 52px;
+  }
+
+  .mission-img-wrap {
+    width: 320px;
+    height: 380px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 32px;
+  }
+
+  .newsletter-inner {
+    gap: 60px;
+  }
+}
+
+/* ============================================
+   TABLET — max 900px
+   ============================================ */
+@media (max-width: 900px) {
+  :root {
+    --section-space: 70px;
+    --padding: 20px;
+  }
+
+  /* ---- Mobile Navbar ---- */
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: min(320px, 88vw);
+    height: 100vh;
+    height: 100dvh;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 4px;
+    padding: 100px 28px 40px;
+    margin: 0;
+    background: linear-gradient(180deg, #022C22 0%, #064E3B 50%, #047857 100%);
+    border-left: 1px solid rgba(52, 211, 153, 0.15);
+    box-shadow: -20px 0 60px rgba(0, 0, 0, 0.35);
+    z-index: 999;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+  }
+
+  .nav-links.open {
+    right: 0;
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 14px 18px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    border-radius: 14px;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: #A7F3D0;
+  }
+
+  .nav-link::before {
+    display: none;
+  }
+
+  [data-theme="dark"] .nav-links {
+    background: linear-gradient(180deg, #071510 0%, #0F241C 100%);
+  }
+
+  /* ---- Hero ---- */
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 130px var(--padding) 80px;
+    gap: 52px;
+    min-height: auto;
+  }
+
+  .hero-content {
+    align-items: center;
+    max-width: 100%;
+  }
+
+  .hero-eyebrow {
+    align-self: center;
+  }
+
+  .hero-subtitle {
+    text-align: center;
+  }
+
+  .hero-cta-group {
+    justify-content: center;
+  }
+
+  .hero-stats {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-image {
+    margin-left: 0;
+    max-width: 360px;
+    width: 100%;
+  }
+
+  .hero-img-card {
+    width: 100%;
+    height: 320px;
+  }
+
+  .badge-1 {
+    left: -10px;
+  }
+
+  .badge-2 {
+    right: -10px;
+  }
+
+  /* ---- Categories ---- */
+  .categories-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .category-card {
+    padding: 24px 12px 20px;
+  }
+
+  .cat-icon {
+    width: 54px;
+    height: 54px;
+    font-size: 1.4rem;
+  }
+
+  /* ---- Products ---- */
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .section-header {
+    margin-bottom: 50px;
+  }
+
+  /* ---- Mission ---- */
+  .mission-inner {
+    grid-template-columns: 1fr;
+    gap: 52px;
+  }
+
+  .mission-visual {
+    order: -1;
+    min-height: 360px;
+  }
+
+  .mission-img-wrap {
+    width: 300px;
+    height: 340px;
+  }
+
+  .mission-content .section-title {
+    text-align: center;
+  }
+
+  .mission-content .section-title::after {
+    margin: 14px auto 0;
+  }
+
+  .mission-content .section-eyebrow {
+    align-self: center;
+  }
+
+  .mission-desc {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .mission-content {
+    align-items: center;
+  }
+
+  .mission-content .btn {
+    align-self: center;
+  }
+
+  /* ---- Reviews ---- */
+  .reviews-slider {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin: 0 auto 44px;
+  }
+
+  .review-card:not(.featured) {
+    display: none;
+  }
+
+  /* ---- Newsletter & Contact ---- */
+  .newsletter-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .newsletter-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .newsletter-content .section-eyebrow {
+    align-self: center;
+  }
+
+  .newsletter-desc {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .newsletter-features {
+    width: 100%;
+  }
+
+  .contact-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  /* ---- Footer ---- */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
+  /* ---- Search Modal ---- */
+  .search-modal {
+    padding: 100px 20px 20px;
+  }
+
+  /* ---- Toast ---- */
+  .toast-container {
+    right: 16px;
+    left: 16px;
+  }
+
+  .toast {
+    min-width: auto;
+    max-width: 100%;
+  }
+}
+
+/* ============================================
+   MOBILE LARGE — max 600px
+   ============================================ */
+@media (max-width: 600px) {
+  :root {
+    --section-space: 60px;
+    --padding: 16px;
+  }
+
+  .nav-container {
+    padding: 0 16px;
+    gap: 12px;
+  }
+
+  .nav-icon-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logo-text {
+    font-size: 1.25rem;
+  }
+
+  .hero {
+    padding: 110px var(--padding) 70px;
+    gap: 40px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-stats {
+    gap: 16px;
+  }
+
+  .stat-num {
+    font-size: 1.2rem;
+  }
+
+  .hero-float-badge {
+    font-size: 0.72rem;
+    padding: 7px 12px;
+  }
+
+  .hero-float-badge i {
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
+  }
+
+  .badge-1 {
+    top: 16px;
+    left: 0;
+  }
+
+  .badge-2 {
+    bottom: 30px;
+    right: 0;
+  }
+
+  .hero-scroll-hint {
+    display: none;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .cat-name {
+    font-size: 0.8rem;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .product-img-wrap {
+    height: 170px;
+  }
+
+  .product-body {
+    padding: 14px 14px 16px;
+  }
+
+  .product-name {
+    font-size: 0.88rem;
+  }
+
+  .price-current {
+    font-size: 1rem;
+  }
+
+  .products-filter {
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .filter-btn {
+    padding: 7px 16px;
+    font-size: 0.78rem;
+  }
+
+  .mission-img-wrap {
+    width: 260px;
+    height: 300px;
+  }
+
+  .mission-counter-card:first-of-type {
+    left: -10px;
+  }
+
+  .mission-counter-card.card-2 {
+    right: -10px;
+  }
+
+  .pillar {
+    padding: 16px;
+  }
+
+  .pillar-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+  }
+
+  .reviews-slider {
+    max-width: 100%;
+  }
+
+  .review-card {
+    padding: 24px 20px;
+  }
+
+  .form-group {
+    flex-direction: column;
+    height: auto;
+    border-radius: var(--radius);
+    padding: 12px;
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .form-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .form-input {
+    padding: 8px 4px;
+  }
+
+  .contact-content {
+    padding: 28px 20px;
+  }
+
+  .contact-item.copyable::after {
+    display: none;
+  }
+
+  .social-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .btn {
+    padding: 12px 22px;
+    font-size: 0.88rem;
+  }
+
+  .back-to-top {
+    bottom: 24px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .search-modal-inner {
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .newsletter {
+    padding: 80px 0;
+  }
+}
+
+/* ============================================
+   MOBILE SMALL — max 400px
+   ============================================ */
+@media (max-width: 400px) {
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-stats {
+    gap: 12px;
+  }
+
+  .stat-divider {
+    height: 28px;
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mission-counter-card {
+    padding: 12px 14px;
+  }
+
+  .counter-num {
+    font-size: 1.2rem;
+  }
+
+  .footer-badges {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-actions {
+    gap: 6px;
+  }
+
+  .nav-icon-btn:not(.nav-toggle) {
+    display: none;
+  }
+
+  .nav-icon-btn.theme-toggle,
+  .nav-icon-btn.cart-btn,
+  .nav-toggle {
+    display: flex;
+  }
+}
+
+/* ============================================
+   DARK MODE — Section Overrides
+   ============================================ */
+[data-theme="dark"] .categories::before,
+[data-theme="dark"] .products::before {
+  background: linear-gradient(180deg, #071510 0%, #0A1812 100%);
+}
+
+[data-theme="dark"] .categories::after,
+[data-theme="dark"] .products::after {
+  opacity: 0.4;
+}
+
+[data-theme="dark"] .mission {
+  background: #0A1812;
+}
+
+[data-theme="dark"] .reviews {
+  background: #071510;
+}
+
+[data-theme="dark"] .section-eyebrow {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(52, 211, 153, 0.18);
+  color: var(--primary-light);
+}
+
+[data-theme="dark"] .filter-btn {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+[data-theme="dark"] .filter-btn.active,
+[data-theme="dark"] .filter-btn:hover {
+  background: var(--gradient-primary);
+  color: #fff;
+  border-color: transparent;
+}
+
+[data-theme="dark"] .pillar {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .review-card {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .rev-btn {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--heading);
+}
+
+/* ============================================
+   LANDSCAPE PHONES
+   ============================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    min-height: auto;
+    padding-top: 90px;
+  }
+
+  .nav-links {
+    padding-top: 80px;
+  }
+
+  .hero-scroll-hint {
+    display: none;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
